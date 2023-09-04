@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const getdetailsvaliduser = async () => {
     try {
-      const res = await fetch("https://shopzone-backend.onrender.com/validateuser", {
+      const res = await fetch("/validateuser", {
         method: "GET",
         headers: {
           Accept: "application/json",
