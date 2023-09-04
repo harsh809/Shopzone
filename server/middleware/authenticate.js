@@ -5,6 +5,10 @@ const secretKey = process.env.KEY;
 const authenticate = async(req , res , next)=>{
     try {
         const Token = req.cookies.Ecommweb;
+        if(!Token){
+            console.log("Token not provided")
+            return ;
+        }
         const verifyToken = jwt.verify(Token ,  secretKey);
         const activeUser = await USER.findOne({_id:verifyToken._id ,"tokens.token":Token});
         if(!activeUser){
