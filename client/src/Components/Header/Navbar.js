@@ -40,26 +40,32 @@ const Navbar = () => {
   const [dropen, setDropen] = useState(false)
 
   const getdetailsvaliduser = async () => {
-    const res = await fetch("/validateuser", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    });
-    const data = await res.json();
-    if (res.status !== 201) {
-      console.log("error");
-    }
-    else if(res.status === 404){
-      console.log("No valid user");
-    } else {
-      console.log("data valid");
-      setAccount(data);
+    try {
+      const res = await fetch("/validateuser", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
+      const data = await res.json();
+      
+      console.log("Response Status:", res.status);
+  
+      if (res.status === 201) {
+        console.log("Data valid");
+        setAccount(data);
+      } else if (res.status === 404) {
+        console.log("No valid user");
+      } else {
+        console.log("Error:", data); 
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
-
+  
   const handleopen = () => {
     setDropen(true)
   }
