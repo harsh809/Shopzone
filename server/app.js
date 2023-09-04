@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const app = express();
 const mongoose = require("mongoose");
-
+const PORT = process.env.PORT;
 require("./db/connection.js")
 const cookieParser = require("cookie-parser");
 const Product = require("./models/productSchema.js")
@@ -16,9 +16,8 @@ app.use(cors());
 
 app.use(Router);
 
-const port =8005;
-app.listen(port , ()=>{
-    console.log("Server is runnning on the port " , port);
+app.listen(PORT , ()=>{
+    console.log("Server is runnning on the port " , PORT);
 });
 
 DefaultData();

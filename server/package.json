@@ -4,8 +4,7 @@
   "description": "This is the server of Ecommerce Website",
   "main": "app.js",
   "scripts": {
-    "install-server": "npm install",
-    "start-server": "node app.js"
+    "start": "node app.js"
   },
   "author": "Harsh",
   "license": "ISC",
