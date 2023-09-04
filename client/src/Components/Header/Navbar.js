@@ -51,6 +51,9 @@ const Navbar = () => {
     const data = await res.json();
     if (res.status !== 201) {
       console.log("error");
+    }
+    else if(res.status === 404){
+      console.log("No valid user");
     } else {
       console.log("data valid");
       setAccount(data);
