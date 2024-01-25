@@ -38,10 +38,10 @@ const Navbar = () => {
   const [listopen , setlistOpen] = useState(true);
   const {products} = useSelector(state => state.getproductsdata);
   const [dropen, setDropen] = useState(false)
-
+  const host = "";
   const getdetailsvaliduser = async () => {
     try {
-      const res = await fetch("/validateuser", {
+      const res = await fetch(`${host}/validateuser`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -73,7 +73,7 @@ const Navbar = () => {
     setDropen(false)
   }
   const logoutuser = async () => {
-    const res2 = await fetch("/logout", {
+    const res2 = await fetch(`${host}/logout`, {
       method: "GET",
       headers: {
         Accept: "application/json",

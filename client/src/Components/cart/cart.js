@@ -19,12 +19,12 @@ margin-bottom:20px;
 const Cart = () => {
     const { id } = useParams("");
     const cartHistory = useNavigate("");
-
+    const host = "";
     const { account, setAccount } = useContext(LoginContext);
     const [idvData, setidvData] = useState("");
 
     const getIndividualData = async () => {
-        const response = await fetch(`/getproductsone/${id}`, {
+        const response = await fetch(`${host}/getproductsone/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -46,7 +46,7 @@ const Cart = () => {
 
     const addTocart = async (id) => {
         if (account) {
-            const checkres = await fetch(`/addCart/${id}`, {
+            const checkres = await fetch(`${host}/addCart/${id}`, {
                 method: "POST",
                 headers: {
                     Accept: "application/json",

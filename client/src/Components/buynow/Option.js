@@ -6,9 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const Option = ({deletedata,get}) => {
 
     const { account, setAccount } = useContext(LoginContext);
+    const host = "";
   const removedata = async (id) => {
     try {
-        const res = await fetch(`/remove/${id}`, {
+        const res = await fetch(`${host}/remove/${id}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",

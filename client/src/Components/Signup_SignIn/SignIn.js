@@ -12,6 +12,7 @@ function SignIn() {
         email: "",
         password: ""
     });
+    const host = "";
     const { account, setAccount } = useContext(LoginContext);
     const addData = (e) => {
         const { name, value } = e.target;
@@ -30,7 +31,7 @@ function SignIn() {
     const sendData = async (e) => {
         e.preventDefault();
         const { email, password } = logdata;
-        const res = await fetch("/login", {
+        const res = await fetch(`${host}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

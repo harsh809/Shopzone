@@ -13,7 +13,7 @@ function SignUp() {
         password:"",
         cpassword:""
     });
-
+    const host = "";
     const addData =(e)=>{
         const {name , value} = e.target; 
         setuData(()=>{
@@ -63,7 +63,7 @@ function SignUp() {
             });
         }
         else{
-            const res = await fetch("/signup" ,{
+            const res = await fetch(`${host}/signup` ,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json"

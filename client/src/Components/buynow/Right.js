@@ -8,7 +8,7 @@ import { LoginContext } from '../Context/contextProvider';
 const Right = ({ iteam }) => {
   const [price, setPrice] = useState(0);
   const { account, setAccount } = useContext(LoginContext);
-
+  const host = "";
   useEffect(() => {
     totalAmount();
   }, [iteam]);
@@ -24,7 +24,7 @@ const Right = ({ iteam }) => {
   // Remove item from cart
   const removeData = async (id) => {
     try {
-      const res = await fetch(`/remove/${id}`, {
+      const res = await fetch(`${host}/remove/${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",

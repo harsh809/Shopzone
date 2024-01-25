@@ -8,9 +8,9 @@ import EmptyCart from '../image/EmptyCart.jpg'
 
 const Buynow = () => {
     const [cartdata, setCartdata] = useState("");
-
+    const host = "";
     const getdatabuy = async () => {
-        const res = await fetch("/cartdetails", {
+        const res = await fetch(`${host}/cartdetails`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
